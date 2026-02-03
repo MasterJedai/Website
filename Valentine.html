@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aditya ❤️ Ayushi</title>
+
+<style>
+body {
+margin: 0;
+height: 100vh;
+background: linear-gradient(135deg, #ff758c, #ff7eb3);
+font-family: 'Poppins', sans-serif;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+}
+
+.container {
+text-align: center;
+color: white;
+padding: 20px;
+}
+
+h1 {
+font-size: 2.2rem;
+margin-bottom: 10px;
+}
+
+h2 {
+font-size: 1.4rem;
+margin-bottom: 30px;
+}
+
+.buttons {
+position: relative;
+}
+
+button {
+padding: 14px 32px;
+font-size: 1.2rem;
+border-radius: 30px;
+border: none;
+cursor: pointer;
+margin: 10px;
+}
+
+#yesBtn {
+background: #ff4d6d;
+color: white;
+}
+
+#noBtn {
+background: white;
+color: #ff4d6d;
+position: absolute;
+}
+
+.love-text {
+display: none;
+font-size: 2.5rem;
+margin-top: 20px;
+}
+
+.share {
+display: none;
+margin-top: 20px;
+}
+
+.share a {
+color: white;
+text-decoration: none;
+border: 2px solid white;
+padding: 10px 18px;
+border-radius: 20px;
+margin: 5px;
+display: inline-block;
+}
+
+/* Floating hearts */
+.heart {
+position: absolute;
+bottom: -20px;
+font-size: 20px;
+animation: float 6s linear infinite;
+opacity: 0.8;
+}
+
+@keyframes float {
+0% {
+transform: translateY(0) scale(1);
+opacity: 1;
+}
+100% {
+transform: translateY(-110vh) scale(1.5);
+opacity: 0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Aditya ❤️ Ayushi</h1>
+<h2 id="question">Will you be my Valentine? 💕</h2>
+
+<div class="buttons">
+<button id="yesBtn" onclick="sayYes()">Yes 💖</button>
+<button id="noBtn" onmouseover="runAway()">No 💔</button>
+</div>
+
+<div class="love-text" id="loveText">
+I love you ❤️🥰
+</div>
+
+<div class="share" id="share">
+<a href="https://wa.me/?text=Will%20you%20be%20my%20Valentine%20💖%20Aditya%20❤️%20Ayushi" target="_blank">
+Share on WhatsApp
+</a>
+<a href="https://www.instagram.com/" target="_blank">
+Share on Instagram
+</a>
+</div>
+</div>
+
+<!-- Sound -->
+<audio id="loveSound">
+<source src="https://www.soundjay.com/human/kiss-01.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function sayYes() {
+document.getElementById("question").style.display = "none";
+document.querySelector(".buttons").style.display = "none";
+document.getElementById("loveText").style.display = "block";
+document.getElementById("share").style.display = "block";
+document.getElementById("loveSound").play();
+}
+
+function runAway() {
+const btn = document.getElementById("noBtn");
+const x = Math.random() * 250 - 125;
+const y = Math.random() * 200 - 100;
+btn.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+// Heart animation generator
+setInterval(() => {
+const heart = document.createElement("div");
+heart.className = "heart";
+heart.innerHTML = "❤️";
+heart.style.left = Math.random() * 100 + "vw";
+heart.style.fontSize = Math.random() * 20 + 15 + "px";
+document.body.appendChild(heart);
+
+setTimeout(() => heart.remove(), 6000);
+}, 300);
+</script>
+
+</body>
+</html>
