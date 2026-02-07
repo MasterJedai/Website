@@ -147,7 +147,7 @@ noBtn.addEventListener("click", () => {
     questionText.innerText = noTexts[noClicks];
     noClicks++;
 
-    let yesSize = 1 + noClicks * 0.35;
+    let yesSize = 1 + noClicks * 0.25;
     let noSize = 1 - noClicks * 0.15;
 
     yesBtn.style.transform = `scale(${yesSize})`;
@@ -181,3 +181,4 @@ setTimeout(() => heart.remove(), 6000);
 
 </body>
 </html>
+
